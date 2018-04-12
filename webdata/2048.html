@@ -1,0 +1,562 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>这只是一个普通的2048.</title>
+	<style>
+		body {
+			background:#C4E5FE;
+		}
+		#hea {
+			height: 150px;
+		}
+		#d1 {
+			height: 355px;
+			width: 355px;
+            margin-left:auto;
+			margin-right:auto;
+			background: #B48B8B;
+		}
+		#lin {
+			height: 5px;
+		}
+		#p1 {
+			background: #74A794;
+			height: 170px;
+			width: 345px; 
+			margin-left:auto;
+			margin-right:auto;
+		}
+		#l1{
+			height: 172.5px;
+			width: 172.5px;
+			background: #D12528;
+			float: right;
+		}#r1{
+			height: 172.5px;
+			width: 172.5px;
+			background: #D12528;
+		}
+		img {
+            width: 87.5px;
+        }
+		#a11 {
+			height: 50%;
+			width: 50%;
+			background:#4B1F20;
+			float: left;
+		}
+		#a12 {
+			height: 50%;
+			width: 50%;
+			background: #7E74C1;
+			float: left;
+		}
+		#a21 {
+			height: 50%;
+			width: 50%;
+			background: #EAC8C9;
+			float: left;
+		}
+		#a22 {
+			height: 50%;
+			width: 50%;
+			background: #C8EAC8;
+			float: left;
+		}
+		
+		
+		#a13 {
+			height: 50%;
+			width: 50%;
+			background:#4B1F20;
+			float: left;
+		}
+		#a14 {
+			height: 50%;
+			width: 50%;
+			background: #7E74C1;
+			float: left;
+		}
+		#a23 {
+			height: 50%;
+			width: 50%;
+			background: #EAC8C9;
+			float: left;
+		}
+		#a24 {
+			height: 50%;
+			width: 50%;
+			background: #C8EAC8;
+			float: left;
+		}
+		
+		
+		#a31 {
+			height: 50%;
+			width: 50%;
+			background:#4B1F20;
+			float: left;
+		}
+		#a32 {
+			height: 50%;
+			width: 50%;
+			background: #7E74C1;
+			float: left;
+		}
+		#a41 {
+			height: 50%;
+			width: 50%;
+			background: #EAC8C9;
+			float: left;
+		}
+		#a42 {
+			height: 50%;
+			width: 50%;
+			background: #C8EAC8;
+			float: left;
+		}
+		
+		
+		#a33 {
+			height: 50%;
+			width: 50%;
+			background:#4B1F20;
+			float: left;
+		}
+		#a34 {
+			height: 50%;
+			width: 50%;
+			background: #7E74C1;
+			float: left;
+		}
+		#a43 {
+			height: 50%;
+			width: 50%;
+			background: #EAC8C9;
+			float: left;
+		}
+		#a44 {
+			height: 50%;
+			width: 50%;
+			background: #C8EAC8;
+			float: left;
+		}
+		
+		
+		
+		#linn {
+			height: 2.5px;
+		}
+		#p2 {
+			height: 170px;
+			width: 345px; 
+			margin-left:auto;
+			margin-right:auto;
+			background: #189A3E
+		}
+		#l2{
+			height: 172.5px;
+			width: 172.5px;
+			background: #D12528;
+			float: right;
+		}#r2{
+			height: 172.5px;
+			width: 172.5px;
+			background: #D12528;
+		}
+		#score {
+			color: #A45253;
+			font-size: 200%;
+		}
+		@font-face {font-family:myFont; src: url("/方正兰亭超细黑简体.ttf")}
+		h1 {
+			font-family:myFont;
+		}
+	</style>
+</head>
+	
+<body>
+	<script>
+		
+		
+	document.onkeydown=function(event){   
+            var e = event || window.event || arguments.callee.caller.arguments[0];   
+            if(e && e.keyCode==87){     
+                mw();  
+            }   
+            if(e && e.keyCode==65){ 
+                ma();   
+            }               
+            if(e && e.keyCode==83){    
+                ms();  
+            }  
+            if(e && e.keyCode==68){   
+                md();   
+            }  
+         };    
+	</script>
+	
+	<script>
+		
+		var a = [[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]];
+		var k=16;
+		var s=0;
+	function mw()
+		{
+			
+			for(j=1;j<=4;j++)
+				{
+					while(true)
+					{
+						  c=0;
+						for(i=4;i>1;i--)
+						{
+							if(a[i][j]!=0)
+							if(a[i-1][j]==0)
+								{
+									a[i-1][j]=a[i][j];
+									a[i][j]=0;
+									c=1;
+								}else
+									{
+										if(a[i-1][j]==a[i][j])
+											{
+												a[i-1][j]=a[i][j]*2;
+												s+=a[i][j]*2;
+												a[i][j]=0;
+												c=1;
+											}
+									}
+						}
+					if(c==0) break;
+			    	}
+					
+				}
+			document.getElementById("score").innerHTML=s;
+			sum=0;
+			kk=0;
+			for(i=1;i<=4;i++)
+				{
+					for(j=1;j<=4;j++)
+						{
+							if(a[i][j]==0)
+								kk++;
+						}
+				}
+			if(kk<2)
+				{
+					alert("You Lost!");
+					return;
+				}
+			while(sum<2)
+				{
+					x=parseInt( Math.random()*16);y=parseInt( Math.random()*16);
+					if(x>0&&x<=4&&y>0&&y<=4)
+						{
+							if(a[x][y]==0)
+								{
+									sum++;
+									a[x][y]=2;
+									
+								}
+						}
+				}
+			
+		prin();
+		
+		}	
+		
+		
+		function ms()
+		{
+			
+			for(j=1;j<=4;j++)
+				{
+					while(true)
+					{
+						  c=0;
+						for(i=1;i<=3;i++)
+						{
+							if(a[i][j]!=0)
+							if(a[i+1][j]==0)
+								{
+									a[i+1][j]=a[i][j];
+									a[i][j]=0;
+									c=1;
+								}else
+									{
+										if(a[i+1][j]==a[i][j])
+											{
+												a[i+1][j]=a[i][j]*2;
+												s+=a[i][j]*2;
+												a[i][j]=0;
+												c=1;
+											}
+									}
+						}
+					if(c==0) break;
+			    	}
+					
+				}
+			document.getElementById("score").innerHTML=s;
+			sum=0;
+			k=0;
+			for(i=1;i<=4;i++)
+				{
+					for(j=1;j<=4;j++)
+						{
+							if(a[i][j]==0)
+								k++;
+						}
+				}
+			if(k<2)
+				{
+					alert("You Lost!");
+					return;
+					
+				}
+			while(sum<2)
+				{
+					x=parseInt( Math.random()*16);y=parseInt( Math.random()*16);
+					if(x>0&&x<=4&&y>0&&y<=4)
+						{
+							if(a[x][y]==0)
+								{
+									sum++;
+									a[x][y]=2;
+									
+								}
+						}
+				}
+		prin();
+		
+		}	
+		
+		function ma()
+		{
+			
+			for(i=1;i<=4;i++)
+				{
+					while(true)
+					{
+						  c=0;
+						for(j=4;j>1;j--)
+						{
+							if(a[i][j]!=0)
+							if(a[i][j-1]==0)
+								{
+									a[i][j-1]=a[i][j];
+									a[i][j]=0;
+									c=1;
+								}else
+									{
+										if(a[i][j-1]==a[i][j])
+											{
+												a[i][j-1]=a[i][j]*2;
+												s+=a[i][j]*2;
+												a[i][j]=0;
+												c=1;
+											}
+									}
+						}
+					if(c==0) break;
+			    	}
+					
+				}
+			document.getElementById("score").innerHTML=s;
+			sum=0;
+			k=0;
+			for(i=1;i<=4;i++)
+				{
+					for(j=1;j<=4;j++)
+						{
+							if(a[i][j]==0)
+								k++;
+						}
+				}
+			if(k<2)
+				{
+					alert("You Lost!");
+					return;
+				}
+			while(sum<2)
+				{
+					x=parseInt( Math.random()*16);y=parseInt( Math.random()*16);
+					if(x>0&&x<=4&&y>0&&y<=4)
+						{
+							if(a[x][y]==0)
+								{
+									sum++;
+									a[x][y]=2;
+									
+								}
+						}
+				}
+		prin();
+		
+		}	
+		
+		function md()
+		{
+			
+			for(i=1;i<=4;i++)
+				{
+					while(true)
+					{
+						  c=0;
+						for(j=1;j<=3;j++)
+						{
+							if(a[i][j]!=0)
+							if(a[i][j+1]==0)
+								{
+									a[i][j+1]=a[i][j];
+									a[i][j]=0;
+									c=1;
+								}else
+									{
+										if(a[i][j+1]==a[i][j])
+											{
+												a[i][j+1]=a[i][j]*2;
+												s+=a[i][j]*2;
+												a[i][j]=0;
+												c=1;
+											}
+									}
+						}
+					if(c==0) break;
+			    	}
+					
+				}
+			document.getElementById("score").innerHTML=s;
+			sum=0;
+			k=0;
+			for(i=1;i<=4;i++)
+				{
+					for(j=1;j<=4;j++)
+						{
+							if(a[i][j]==0)
+								k++;
+						}
+				}
+			if(k<2)
+				{
+					alert("You Lost!");
+					return;
+				}
+			while(sum<2)
+				{
+					x=parseInt( Math.random()*16);y=parseInt( Math.random()*16);
+					if(x>0&&x<=4&&y>0&&y<=4)
+						{
+							if(a[x][y]==0)
+								{
+									sum++;
+									a[x][y]=2;
+									
+								}
+						}
+				}
+		prin();
+		
+		}	
+		
+		
+	function start()
+		{
+
+       
+			var x,y,sum=0;
+			while(sum<2)
+				{
+					x=parseInt( Math.random()*16);y=parseInt( Math.random()*16);
+					if(x>0&&x<=4&&y>0&&y<=4)
+						{
+							if(a[x][y]==0)
+								{
+									sum++;
+									a[x][y]=2;
+									
+								}
+						}
+				}
+		
+			prin();
+			
+		}
+	function prin()
+		{
+			
+			document.getElementById("a41").innerHTML="<img src='images\\"+a[4][1].toString()+".png' />";
+document.getElementById("a42").innerHTML="<img src='images\\"+a[4][2].toString()+".png' />";
+document.getElementById("a43").innerHTML="<img src='images\\"+a[4][3].toString()+".png' />";
+document.getElementById("a44").innerHTML="<img src='images\\"+a[4][4].toString()+".png' />";
+			document.getElementById("a11").innerHTML="<img src='images\\"+a[1][1].toString()+".png' />";
+document.getElementById("a12").innerHTML="<img src='images\\"+a[1][2].toString()+".png' />";
+document.getElementById("a13").innerHTML="<img src='images\\"+a[1][3].toString()+".png' />";
+document.getElementById("a14").innerHTML="<img src='images\\"+a[1][4].toString()+".png' />";
+document.getElementById("a21").innerHTML="<img src='images\\"+a[2][1].toString()+".png' />";
+document.getElementById("a22").innerHTML="<img src='images\\"+a[2][2].toString()+".png' />";
+document.getElementById("a23").innerHTML="<img src='images\\"+a[2][3].toString()+".png' />";
+document.getElementById("a24").innerHTML="<img src='images\\"+a[2][4].toString()+".png' />";
+document.getElementById("a31").innerHTML="<img src='images\\"+a[3][1].toString()+".png' />";
+document.getElementById("a32").innerHTML="<img src='images\\"+a[3][2].toString()+".png' />";
+document.getElementById("a33").innerHTML="<img src='images\\"+a[3][3].toString()+".png' />";
+document.getElementById("a34").innerHTML="<img src='images\\"+a[3][4].toString()+".png' />";
+
+		}
+	
+	</script>
+	
+	<div id="hea"></div>
+	<h1  align="center">这只是一个普通的2048.</h1>
+	<div id="d1">
+		<div id="lin"></div>
+	    <div id="p1">
+			<div id="l1">
+			    <div id="a13"></div>
+				<div id="a14"></div>
+				<div id="a23"></div>
+				<div id="a24"></div>
+			</div>
+			<div id="r1">
+			    <div id="a11"></div>
+				<div id="a12"></div>
+				<div id="a21"></div>
+				<div id="a22"></div>
+			</div>
+		</div>
+		<div id="linn"></div>
+		<div id="p2">
+			<div id="l2">
+			    <div id="a33"></div>
+				<div id="a34"></div>
+				<div id="a43"></div>
+				<div id="a44"></div>
+			</div>
+			<div id="r2">
+			    <div id="a31"></div>
+				<div id="a32"></div>
+				<div id="a41"></div>
+				<div id="a42"></div>
+			</div>
+		</div>
+	</div>
+	<div align="center">
+	<button onClick="start()">Start!</button>
+		<br />
+		<br />
+		<br />
+		<h2>Your Score:</h2>
+		<div id="score"></div>
+	</div>
+	<br />
+	<br />
+	<br />
+	<p align="center">
+	
+	Xrvitd &copy; 2018.4.3  <a href="http://www.miitbeian.gov.cn">鲁ICP备17052928号-1</a> - Collect from <a href="https://blog.csdn.net/xu326057825" title="Xrvitd" target="_blank">Xrvitd's Blog</a>
+		
+	</p>
+</body>
+</html>

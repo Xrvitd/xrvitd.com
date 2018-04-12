@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>弱鸡的手势识别</title>
+		
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-panels.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+		</noscript>
+		
+		<script>
+	  
+		function getans()
+		{
+			var xmlhttp;
+	if (window.XMLHttpRequest)
+	{
+		xmlhttp=new XMLHttpRequest();
+	}
+	else
+	{
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange=function()
+	{
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+			
+			document.getElementById("ans").innerHTML=xmlhttp.responseText;	
+		}
+	}
+	xmlhttp.open("GET","/ans.txt",true);
+	xmlhttp.send();
+		}
+			function ma(qq)
+			{
+				document.getElementById(qq).className = "active";
+			}
+			function mak(qq)
+			{
+				document.getElementById(qq).className = "";
+			}
+	</script>
+		
+		
+	</head>
+	<body>
+
+	<!-- Header -->
+	<div id="header-wrapper">
+		<div id="header">
+			<div class="container">
+				<div id="logo"> <!-- Logo -->
+					<h1><a href="index.html">Xrvitd</a></h1>
+					<span>emmm...</span>
+				</div>
+			</div>
+			<div id="menu-wrapper">
+				<div class="container">
+					<nav id="nav">
+						<ul>
+							<li onMouseOver="ma('bww')" onMouseOut="mak('bww')" id="bww"><a href="index.html">主页</a></li>
+							<li onMouseOver="ma('bw')" onMouseOut="mak('bw')" id="bw"><a href="right-sidebar.html">博文</a></li>
+							<li  class="active"><a href="t1.html">弱鸡的手势识别</a></li>
+							<li onMouseOver="ma('bwq')" onMouseOut="mak('bwq')" id="bwq"><a href="https://3dincrement.github.io/">for 3D Increment</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Header -->
+		
+	<!-- Main -->
+		<div id="main-wrapper">
+			<div class="container">
+
+				<div id="main">
+	
+					<div class="row">
+					
+						<!-- Content -->
+							<div id="content" class="8u skel-cell-important">
+								<section>
+									<header>
+										<h2 id="myDiv">弱鸡的手势识别</h2>
+										<span class="byline">一名苟活在SDU的蒟蒻</span>
+										
+										
+										<form action="upload_file.php" method="post" enctype="multipart/form-data">
+											<label for="file">文件名：</label><br><br>
+											<input type="file" name="file" id="file" accept="image/*" capture="camera">  <br><br>
+											<input type="submit" name="submit" value="提交">
+	
+										</form><br>
+   										 <button onClick="getans()">检测</button>
+										<h2>识别结果为：</h2>
+											<h2 id="ans"> </h2><br>
+											
+										
+										
+										
+									</header>
+									
+									 <div id="article_content" class="article_content csdn-tracking-statistics tracking-click" data-mod="popu_519" data-dsm="post">
+                            <div id="mydi" class="markdown_views">
+								
+                             </div>
+									
+									</div>
+					            </section>
+									
+							</div>
+							
+						<!-- Sidebar -->
+							<div id="sidebar" class="4u">
+								<section>
+									<header>
+								<h2>This is xrvitd's blog</h2>
+										<span class="byline">一名在SDU划水的蒟蒻</span>
+									</header>
+									<ul class="style1">
+										<li class="first">
+											<p class="date"><a href="#">April<b>03</b></a></p>
+											<p><a href="right-sidebar.html">Codevs 1136 luogu P1312 Mayan 游戏.</a></p>
+										</li>
+										<li>
+											<p class="date"><a href="#">April<b>02</b></a></p>
+											<p><a href="right-sidebar.html">Codevs 1191 数轴染色 题解报告.</a></p>
+										</li>
+										<li>
+											<p class="date"><a href="#">April<b>01</b></a></p>
+											<p><a href="right-sidebar.html">Codevs 1228 苹果树 题解报告.</a></p>
+										</li>
+									</ul>						
+								</section>
+							</div>
+	
+					</div>
+				
+				</div>
+			</div>
+		</div>
+	<!-- /Main -->
+
+	<!-- Footer -->
+	<div class="container">
+			<div id="footer">
+				<div class="row">
+					<section class="4u">
+						<header>
+							<h2>本人已脱单，甚满意，勿扰</h2>
+						</header>
+						<ul class="default">
+							<li class="first"><a href="#">“这里写点啥好呢”</a></li>
+							<li><a href="#">“这是啥呀，，，”</a></li>
+							<li><a href="#">“就是，，我要写点东西填充空白，，”</a></li>
+							<li><a href="#">“本人已脱单，甚满意，勿扰”</a></li>
+							<li><a href="#">“好。。。”</a></li>
+						</ul>
+					</section>
+					<section class="4u">
+						<header>
+							<h2>求求你了，我实在不知道写啥了</h2>
+						</header>
+						<ul class="default">
+							<li class="first"><a href="#">Orz.....</a></li>
+							<li><a href="#">心情复杂......</a></li>
+							<li><a href="#">随便水一水好了，，</a></li>
+							<li><a href="#">bulabulabula......</a></li>
+							<li><a href="#">噫。</a></li>
+						</ul>
+					</section>
+					<section class="4u">
+						<header>
+							<h2>联系我,没有们：</h2>
+						</header>
+						<ul class="default">
+							<li class="first"><a href="#">QQ:12707292</a></li>
+							<li><a href="#">QQ群？:641415382</a></li>
+							<li><a href="#">xrvitd@163.com</a></li>
+							<li><a href="#">12707292@qq.com</a></li>
+							<li><a href="https://github.com/Xrvitd">https://github.com/Xrvitd</a></li>
+							
+						</ul>
+					</section>
+				</div>
+			</div>
+		</div>
+	<!-- /Footer -->
+
+	<!-- Copyright -->
+		<div id="copyright">
+			<div class="container">
+				Xrvitd &copy; 2018.4.3  <a href="http://www.miitbeian.gov.cn">鲁ICP备17052928号-1</a> - Collect from <a href="https://blog.csdn.net/xu326057825" title="Xrvitd" target="_blank">Xrvitd's Blog</a>
+			</div>
+		</div>
+
+
+	</body>
+</html>
